@@ -1,0 +1,1551 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amr Emad Abdullah | Portfolio</title>
+    <meta name="description" content="Personal portfolio of Amr Emad Abdullah - Web Developer, Cybersecurity Enthusiast, AI Explorer, and Author.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700;800&family=Manrope:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- CSS VARIABLES (Light Mode Default) --- */
+        :root {
+            --primary: #20c997; 
+            --primary-dark: #17a074;
+            --primary-light: #e6fcf6;
+            --text-main: #1a1a1a;
+            --text-muted: #555555;
+            --bg-color: #fafdfb;
+            --card-bg: #ffffff;
+            --border: #e0e0e0;
+            --nav-bg: rgba(250, 253, 251, 0.9);
+            --font-en: 'Manrope', 'Segoe UI', sans-serif;
+            --font-display-en: 'Playfair Display', Georgia, serif;
+            --font-ar: 'Alexandria', Tahoma, sans-serif;
+            --transition: all 0.3s ease;
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+        }
+
+        /* --- DARK MODE VARIABLES --- */
+        body.dark-mode {
+            --primary: #20c997;
+            --primary-dark: #17a074;
+            --primary-light: #134e4a;
+            --text-main: #f8f9fa;
+            --text-muted: #a0aec0;
+            --bg-color: #0f172a; 
+            --card-bg: #1e293b; 
+            --border: #334155;
+            --nav-bg: rgba(15, 23, 42, 0.9);
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+        }
+
+        /* --- GLOBAL STYLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        body.lang-en { font-family: var(--font-en); }
+        body.lang-ar { font-family: var(--font-ar); }
+        body.lang-en h1,
+        body.lang-en h2,
+        body.lang-en h3,
+        body.lang-en h4,
+        body.lang-en .logo {
+            font-family: var(--font-display-en);
+        }
+        body.lang-en .hero-text h1 { font-weight: 800; letter-spacing: -0.045em; }
+        body.lang-en .hero-text h2 { font-family: var(--font-en); font-weight: 700; letter-spacing: 0.01em; }
+
+        /* Language Toggle Logic */
+        body.lang-en .ar { display: none !important; }
+        body.lang-ar .en { display: none !important; }
+        
+        body.lang-ar { direction: rtl; }
+        body.lang-en { direction: ltr; }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* --- TYPOGRAPHY --- */
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--text-main);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50%;
+            height: 4px;
+            background-color: var(--primary);
+            border-radius: 2px;
+        }
+
+        body.lang-ar .section-title::after {
+            left: auto;
+            right: 0;
+        }
+
+        .highlight { color: var(--primary); }
+
+        /* --- LAYOUT & UTILITIES --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 6rem 0;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: #ffffff;
+            box-shadow: 0 4px 14px rgba(32, 201, 151, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--text-main);
+            border: 2px solid var(--border);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* --- NAVBAR --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--nav-bg);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+            transition: var(--transition);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span { color: var(--primary); }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-muted);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .icon-btn {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: var(--transition);
+        }
+
+        .icon-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .lang-switch {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            border: 1px solid var(--primary);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 700;
+            font-family: inherit;
+            transition: var(--transition);
+        }
+
+        body.dark-mode .lang-switch { color: #fff; }
+        .lang-switch:hover { background: var(--primary); color: #fff; }
+
+        .mobile-menu-btn { display: none; }
+
+        /* --- HERO SECTION --- */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            background: radial-gradient(circle at 10% 20%, var(--primary-light) 0%, transparent 40%);
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text h1 { font-size: 4rem; margin-bottom: 1rem; }
+        .hero-text h2 { font-size: 1.5rem; color: var(--text-muted); font-weight: 400; margin-bottom: 1.5rem; }
+        .hero-text p { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 2.5rem; max-width: 500px; }
+
+        .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+        .hero-image { position: relative; }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 450px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            z-index: 2;
+            border: 5px solid var(--card-bg);
+            object-fit: cover;
+            aspect-ratio: 4/5;
+            background-color: var(--primary-light);
+        }
+
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            right: -20px;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--primary);
+            border-radius: 20px;
+            z-index: 1;
+        }
+
+        /* --- ABOUT SECTION --- */
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+        .about-text p { margin-bottom: 1.5rem; font-size: 1.1rem; color: var(--text-muted); }
+
+        /* --- SKILLS SECTION --- */
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+
+        .skill-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+            transition: var(--transition);
+        }
+
+        .skill-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: var(--primary); }
+        .skill-card h3 { margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+        .skill-card h3 i { color: var(--primary); }
+
+        .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .skill-tag {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        body.dark-mode .skill-tag { color: #fff; }
+
+        /* --- CERTIFICATES SECTION --- */
+        .certs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+
+        .cert-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cert-card:hover { box-shadow: var(--shadow-md); transform: translateY(-5px); border-color: var(--primary); }
+
+        .cert-img-container {
+            width: 100%;
+            height: 220px;
+            background: var(--primary-light);
+            overflow: hidden;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .cert-img-container a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .cert-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            transition: transform 0.5s ease;
+        }
+
+        .cert-card:hover .cert-img-container img { transform: scale(1.05); }
+
+        .cert-content { padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: center; }
+        .cert-content h4 { margin-bottom: 0.5rem; font-size: 1.1rem; }
+        .cert-content .issuer { color: var(--primary); font-weight: 600; font-size: 0.95rem; margin-bottom: 0.5rem; }
+        .cert-content .date { color: var(--text-muted); font-size: 0.85rem; }
+        .cert-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            width: fit-content;
+            margin-top: 0.9rem;
+            color: var(--primary);
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        .cert-link:hover { color: var(--primary-dark); }
+
+        /* --- PORTFOLIO SECTION --- */
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-lg); border-color: var(--primary); }
+
+        .project-img {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-size: 3rem;
+        }
+
+        .project-info { padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; }
+        .project-info h3 { margin-bottom: 0.5rem; }
+        .project-info p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; flex-grow: 1; }
+        
+        .project-links { display: flex; gap: 1rem; }
+        .project-links a { color: var(--primary); font-weight: 600; font-size: 0.9rem; display: flex; align-items: center; gap: 0.3rem; }
+        .project-links a:hover { color: var(--primary-dark); }
+
+        /* --- SPECIAL BOOK CARD --- */
+        .book-card {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            background: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border);
+            margin-bottom: 2rem;
+        }
+
+        .book-cover-container {
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 420px;
+            padding: 1.5rem;
+            overflow: hidden;
+        }
+
+        .book-cover-container a { display: block; height: 100%; }
+        .book-cover-image {
+            display: block;
+            height: 100%;
+            max-height: 420px;
+            width: auto;
+            max-width: 100%;
+            object-fit: contain;
+            border-radius: 6px;
+            box-shadow: 10px 10px 20px rgba(0,0,0,0.2);
+            transition: transform 0.5s ease;
+        }
+        .book-card:hover .book-cover-image { transform: translateY(-5px); }
+
+        .book-3d {
+            width: 200px;
+            height: 280px;
+            background: #ffffff;
+            border-radius: 4px 10px 10px 4px;
+            box-shadow: 10px 10px 20px rgba(0,0,0,0.2), inset 4px 0 10px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem;
+            text-align: center;
+            transform: rotateY(-20deg);
+            transition: transform 0.5s ease;
+            position: relative;
+        }
+        
+        .book-3d::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 10px;
+            height: 100%;
+            background: #e0e0e0;
+            border-radius: 4px 0 0 4px;
+        }
+
+        .book-card:hover .book-3d { transform: rotateY(0deg); }
+        .book-3d h3 { color: var(--primary-dark); font-size: 1.2rem; margin-bottom: 0.5rem; line-height: 1.4; }
+        .book-3d p { font-size: 0.8rem; color: #555; }
+        .book-info { padding: 3rem; display: flex; flex-direction: column; justify-content: center; }
+        .book-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.5rem; }
+
+        /* --- CONTACT SECTION --- */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            background: var(--card-bg);
+            padding: 4rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border);
+        }
+
+        .contact-info h3 { margin-bottom: 1.5rem; font-size: 1.8rem; }
+        .contact-info p { color: var(--text-muted); margin-bottom: 2rem; }
+        
+        .contact-item { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; font-size: 1.1rem; }
+        .contact-item i {
+            width: 40px; height: 40px; background: var(--primary-light); color: var(--primary);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+        }
+
+        .social-links { display: flex; gap: 1rem; margin-top: 2rem; }
+        .social-links a {
+            width: 45px; height: 45px; background: var(--primary-light); color: var(--primary);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem; transition: var(--transition);
+        }
+        .social-links a:hover { background: var(--primary); color: #ffffff; transform: translateY(-3px); }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%; padding: 1rem; margin-bottom: 1rem; border: 1px solid var(--border);
+            border-radius: 8px; font-family: inherit; background: var(--bg-color);
+            color: var(--text-main); outline: none; transition: var(--transition);
+        }
+
+        .contact-form input:focus, .contact-form textarea:focus {
+            border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-light);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center; padding: 2rem; border-top: 1px solid var(--border);
+            color: var(--text-muted); background: var(--card-bg);
+        }
+
+        /* --- RESPONSIVE DESIGN --- */
+        @media (max-width: 992px) {
+            .hero-content, .about-grid, .contact-container, .book-card { grid-template-columns: 1fr; }
+            .hero-text h1 { font-size: 3rem; }
+            .hero-image { order: -1; text-align: center; }
+            .hero-image img { max-width: 350px; }
+            .hero-image::before { display: none; }
+            .book-cover-container { min-height: 340px; padding: 1.5rem; }
+            .book-cover-image { max-height: 340px; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed; top: 80px; left: -100%; width: 100%; height: calc(100vh - 80px);
+                background: var(--bg-color); flex-direction: column; justify-content: center;
+                transition: var(--transition); border-top: 1px solid var(--border);
+            }
+
+            body.lang-ar .nav-links { left: auto; right: -100%; }
+            .nav-links.active { left: 0; }
+            body.lang-ar .nav-links.active { right: 0; left: auto; }
+
+            .mobile-menu-btn { 
+                display: block; background: transparent; border: none; 
+                font-size: 1.5rem; color: var(--text-main); cursor: pointer;
+            }
+            
+            .section-title { font-size: 2rem; }
+            .contact-container { padding: 2rem; }
+        }
+
+        /* --- POLISHED INTERACTIONS & VISUAL SYSTEM --- */
+        html { scroll-padding-top: 104px; }
+        body {
+            min-height: 100vh;
+            background-image: radial-gradient(circle at 85% 0%, rgba(32, 201, 151, 0.09), transparent 26rem);
+        }
+        body.dark-mode { background-image: radial-gradient(circle at 85% 0%, rgba(45, 212, 191, 0.12), transparent 26rem); }
+        ::selection { background: var(--primary); color: #fff; }
+        :focus-visible { outline: 3px solid rgba(32, 201, 151, 0.55); outline-offset: 4px; }
+
+        #scrollProgress {
+            position: fixed;
+            inset: 0 auto auto 0;
+            width: 0;
+            height: 3px;
+            z-index: 1100;
+            background: linear-gradient(90deg, #20c997, #5eead4, #20c997);
+            box-shadow: 0 2px 12px rgba(32, 201, 151, 0.55);
+            transition: width 0.1s linear;
+        }
+
+        nav { box-shadow: 0 8px 30px rgba(15, 23, 42, 0.035); }
+        .logo { letter-spacing: -0.03em; }
+        .logo-spark { color: #f59e0b; font-size: 0.95rem; margin-inline-start: -0.35rem; }
+        .nav-links a { position: relative; padding: 0.35rem 0; }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -2px;
+            height: 2px;
+            border-radius: 999px;
+            background: var(--primary);
+            transform: scaleX(0);
+            transform-origin: center;
+            transition: transform 0.25s ease;
+        }
+        .nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
+        .nav-links a.active { color: var(--text-main); }
+
+        .btn { position: relative; overflow: hidden; min-height: 48px; }
+        .btn::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(110deg, transparent 25%, rgba(255,255,255,0.24) 45%, transparent 65%);
+            transform: translateX(-120%);
+            transition: transform 0.55s ease;
+        }
+        .btn:hover::after { transform: translateX(120%); }
+        .btn > * { position: relative; z-index: 1; }
+        .btn > i { position: relative; z-index: 1; }
+
+        #hero {
+            position: relative;
+            isolation: isolate;
+            overflow: hidden;
+            background: radial-gradient(circle at 8% 22%, var(--primary-light) 0%, transparent 40%), radial-gradient(circle at 88% 80%, rgba(45, 212, 191, 0.13), transparent 24rem);
+        }
+        #hero .hero-content { position: relative; z-index: 1; }
+        .hero-emoji-cloud { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+        .hero-emoji-cloud span { position: absolute; display: block; opacity: 0.75; filter: drop-shadow(0 8px 9px rgba(15, 23, 42, 0.12)); animation: emoji-drift 5s ease-in-out infinite; }
+        .hero-emoji-cloud span:nth-child(1) { top: 17%; left: 5%; font-size: 2.2rem; }
+        .hero-emoji-cloud span:nth-child(2) { top: 13%; right: 10%; font-size: 1.8rem; animation-delay: -1.4s; }
+        .hero-emoji-cloud span:nth-child(3) { bottom: 14%; left: 43%; font-size: 2rem; animation-delay: -2.7s; }
+        .hero-emoji-cloud span:nth-child(4) { bottom: 8%; right: 4%; font-size: 2.4rem; animation-delay: -3.6s; }
+        #hero::after {
+            content: '';
+            position: absolute;
+            inset: auto -9rem -13rem auto;
+            width: 26rem;
+            height: 26rem;
+            border: 1px solid rgba(32, 201, 151, 0.22);
+            border-radius: 50%;
+            z-index: -1;
+        }
+        .hero-text h1 { font-size: clamp(3rem, 7vw, 5.1rem); letter-spacing: -0.06em; }
+        .hero-text h2 { max-width: 42rem; line-height: 1.45; }
+        .hero-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            margin-bottom: 1rem;
+            padding: 0.43rem 0.85rem;
+            border: 1px solid rgba(32, 201, 151, 0.32);
+            border-radius: 999px;
+            background: rgba(255,255,255,0.55);
+            color: var(--primary-dark);
+            font-size: 0.87rem;
+            font-weight: 700;
+            box-shadow: var(--shadow-sm);
+        }
+        body.dark-mode .hero-kicker { background: rgba(30, 41, 59, 0.7); color: #99f6e4; }
+        .pulse-dot {
+            display: inline-block;
+            width: 0.55rem;
+            height: 0.55rem;
+            border-radius: 50%;
+            background: #22c55e;
+            box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.55);
+            animation: pulse 1.8s infinite;
+        }
+        .quick-facts { display: flex; flex-wrap: wrap; gap: 0.65rem; margin: 2.1rem 0 2.4rem; }
+        .fact {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.55rem 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: color-mix(in srgb, var(--card-bg) 82%, transparent);
+            box-shadow: var(--shadow-sm);
+            color: var(--text-muted);
+            font-size: 0.84rem;
+            font-weight: 600;
+        }
+        .fact strong { color: var(--text-main); }
+        .hero-image { padding: 1.25rem; }
+        .hero-image::after {
+            content: '✦';
+            position: absolute;
+            top: -0.1rem;
+            left: 0;
+            color: #f59e0b;
+            font-size: 2.5rem;
+            z-index: 3;
+            animation: float 3s ease-in-out infinite;
+        }
+        .hero-image img { transition: transform 0.6s ease, box-shadow 0.6s ease; }
+        .hero-image:hover img { transform: translateY(-8px) rotate(-1deg); box-shadow: 0 26px 40px -16px rgba(15, 23, 42, 0.35); }
+
+        section { position: relative; }
+        .section-title { margin-bottom: 1rem; }
+        .section-subtitle { max-width: 42rem; margin-bottom: 2.5rem; color: var(--text-muted); font-size: 1.04rem; }
+        .title-emoji { display: inline-block; margin-inline-end: 0.45rem; filter: drop-shadow(0 4px 7px rgba(15, 23, 42, 0.12)); }
+        .about-text p { font-size: 1.05rem; }
+        .about-text p strong { color: var(--primary-dark); }
+        .mission-card { position: relative; overflow: hidden; }
+        .mission-card::after {
+            content: '🎯';
+            position: absolute;
+            inset: auto -1rem -1.3rem auto;
+            font-size: 6rem;
+            opacity: 0.1;
+            transform: rotate(-15deg);
+        }
+
+        .skills-grid { gap: 1.25rem; }
+        .skill-card { border-radius: 18px; }
+        .skill-card:hover { transform: translateY(-7px); }
+        .skill-heading { display: flex; align-items: center; gap: 0.65rem; }
+        .skill-emoji { font-size: 1.25rem; }
+        .skill-tag { transition: transform 0.2s ease, background 0.2s ease; }
+        .skill-tag:hover { transform: translateY(-2px); background: var(--primary); color: white; }
+
+        .certs-grid { gap: 1.25rem; }
+        .cert-card { border-radius: 18px; }
+        .cert-img-container { position: relative; }
+        .cert-img-container::after {
+            content: '🔍';
+            position: absolute;
+            right: 0.85rem;
+            bottom: 0.75rem;
+            display: grid;
+            place-items: center;
+            width: 2.25rem;
+            height: 2.25rem;
+            border-radius: 50%;
+            background: rgba(15, 23, 42, 0.72);
+            color: #fff;
+            opacity: 0;
+            transform: translateY(8px);
+            transition: 0.25s ease;
+            pointer-events: none;
+        }
+        .cert-card:hover .cert-img-container::after { opacity: 1; transform: translateY(0); }
+        .cert-content { padding: 1.35rem 1.45rem 1.5rem; }
+        .cert-badge {
+            display: inline-flex;
+            align-items: center;
+            width: fit-content;
+            gap: 0.35rem;
+            margin-bottom: 0.75rem;
+            padding: 0.28rem 0.6rem;
+            border-radius: 999px;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+        body.dark-mode .cert-badge { color: #ccfbf1; }
+
+        .cert-filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+            margin: 1.75rem 0 2rem;
+        }
+        .cert-filter-btn {
+            padding: 0.55rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            background: var(--card-bg);
+            color: var(--text-muted);
+            font: inherit;
+            font-size: 0.9rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .cert-filter-btn:hover,
+        .cert-filter-btn[aria-pressed="true"] {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+        .cert-card[hidden] { display: none; }
+
+        .certificate-modal {
+            width: min(940px, calc(100% - 2rem));
+            max-height: min(88vh, 780px);
+            padding: 0;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            background: var(--card-bg);
+            color: var(--text-main);
+            box-shadow: 0 24px 70px rgba(15, 23, 42, 0.35);
+        }
+        .certificate-modal::backdrop { background: rgba(15, 23, 42, 0.72); backdrop-filter: blur(4px); }
+        .certificate-modal[open] { display: grid; grid-template-rows: auto minmax(0, 1fr) auto; }
+        .modal-header,
+        .modal-actions {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 1rem 1.25rem;
+        }
+        .modal-header { border-bottom: 1px solid var(--border); }
+        .modal-header p { font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .modal-actions { border-top: 1px solid var(--border); justify-content: flex-end; }
+        .modal-preview { min-height: 0; padding: 1rem; display: grid; place-items: center; background: var(--bg-color); }
+        .modal-preview img { display: block; max-width: 100%; max-height: calc(88vh - 150px); object-fit: contain; border-radius: 8px; box-shadow: var(--shadow-md); }
+        .modal-open-link { color: var(--primary); font-weight: 700; }
+        .modal-open-link:hover { color: var(--primary-dark); }
+
+        @media (max-width: 600px) {
+            .cert-filter-bar { gap: 0.5rem; }
+            .cert-filter-btn { padding: 0.48rem 0.78rem; font-size: 0.82rem; }
+            .modal-header, .modal-actions { padding: 0.85rem 1rem; }
+            .modal-preview { padding: 0.65rem; }
+        }
+
+        .projects-grid { gap: 1.5rem; }
+        .project-card { border-radius: 20px; }
+        .project-img { position: relative; overflow: hidden; }
+        .project-img::before {
+            content: '';
+            position: absolute;
+            width: 9rem;
+            height: 9rem;
+            border: 1px solid rgba(255,255,255,0.32);
+            border-radius: 50%;
+            transform: translate(58%, -52%);
+        }
+        .project-img i { position: relative; z-index: 1; transition: transform 0.35s ease; }
+        .project-card:hover .project-img i { transform: scale(1.13) rotate(-5deg); }
+        .project-info { padding: 1.5rem; }
+        .project-links a { width: fit-content; padding: 0.5rem 0.7rem; border-radius: 9px; background: var(--primary-light); }
+        body.dark-mode .project-links a { color: #ccfbf1; }
+        .project-links a:hover { background: var(--primary); color: white; }
+        .book-card { border-radius: 22px; }
+        .book-info h3 { font-size: 1.55rem; }
+
+        .contact-container { position: relative; overflow: hidden; }
+        .contact-container::before {
+            content: '💬';
+            position: absolute;
+            right: -2rem;
+            bottom: -2.4rem;
+            font-size: 11rem;
+            opacity: 0.06;
+            pointer-events: none;
+        }
+        .contact-item a { transition: color 0.2s ease; }
+        .contact-item a:hover { color: var(--primary); }
+        .copy-email-btn {
+            width: 2rem;
+            height: 2rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--card-bg);
+            color: var(--primary);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .copy-email-btn:hover { background: var(--primary); color: white; border-color: var(--primary); }
+        .contact-form { position: relative; z-index: 1; }
+        .contact-form input, .contact-form textarea { border-radius: 12px; }
+        .contact-form textarea { resize: vertical; min-height: 8.25rem; }
+        .form-status {
+            display: none;
+            margin-top: 1rem;
+            padding: 0.85rem 1rem;
+            border: 1px solid rgba(32, 201, 151, 0.35);
+            border-radius: 12px;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+        .form-status.is-visible { display: block; }
+        body.dark-mode .form-status { color: #ccfbf1; }
+
+        .back-to-top {
+            position: fixed;
+            right: 1.25rem;
+            bottom: 1.25rem;
+            display: grid;
+            place-items: center;
+            width: 3rem;
+            height: 3rem;
+            border: 0;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 10px 26px rgba(32, 201, 151, 0.35);
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(15px);
+            transition: var(--transition);
+            z-index: 900;
+        }
+        .back-to-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+        .back-to-top:hover { background: var(--primary-dark); transform: translateY(-4px); }
+        body.lang-ar .back-to-top { right: auto; left: 1.25rem; }
+
+        .toast {
+            position: fixed;
+            inset: auto 50% 1.6rem auto;
+            z-index: 1200;
+            padding: 0.7rem 1rem;
+            border-radius: 999px;
+            background: #0f172a;
+            color: #fff;
+            box-shadow: var(--shadow-lg);
+            opacity: 0;
+            pointer-events: none;
+            transform: translate(50%, 1rem);
+            transition: 0.25s ease;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        .toast.show { opacity: 1; transform: translate(50%, 0); }
+
+        .emoji-burst {
+            position: fixed;
+            z-index: 1600;
+            pointer-events: none;
+            font-size: 1.3rem;
+            line-height: 1;
+            filter: drop-shadow(0 5px 7px rgba(15, 23, 42, 0.22));
+            animation: emoji-burst 0.82s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
+        .reveal.is-visible { opacity: 1; transform: none; }
+        .reveal:nth-child(2) { transition-delay: 0.08s; }
+        .reveal:nth-child(3) { transition-delay: 0.16s; }
+        .reveal:nth-child(4) { transition-delay: 0.24s; }
+        .reveal:nth-child(5) { transition-delay: 0.32s; }
+        @keyframes pulse { 70% { box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); } 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); } }
+        @keyframes float { 50% { transform: translateY(-9px) rotate(10deg); } }
+        @keyframes emoji-drift { 50% { transform: translateY(-15px) rotate(12deg) scale(1.08); } }
+        @keyframes emoji-burst {
+            0% { opacity: 0; transform: translate(-50%, -50%) scale(0.2) rotate(-18deg); }
+            30% { opacity: 1; transform: translate(-50%, -50%) scale(1.15) rotate(8deg); }
+            100% { opacity: 0; transform: translate(-50%, -50%) translate(var(--burst-x), var(--burst-y)) scale(0.82) rotate(30deg); }
+        }
+
+        @media (max-width: 768px) {
+            .hero-text h1 { font-size: clamp(2.8rem, 14vw, 3.8rem); }
+            .hero-kicker { font-size: 0.78rem; }
+            .fact { font-size: 0.76rem; }
+            .contact-container { padding: 2rem 1.35rem; }
+            .back-to-top { width: 2.7rem; height: 2.7rem; right: 0.85rem; bottom: 0.85rem; }
+            body.lang-ar .back-to-top { right: auto; left: 0.85rem; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+            .reveal { opacity: 1; transform: none; }
+        }
+    </style>
+</head>
+<body class="lang-en">
+    <div id="scrollProgress" aria-hidden="true"></div>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="container nav-content">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-code highlight"></i> Amr<span>.</span><span class="logo-spark" aria-hidden="true">✦</span>
+            </a>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#hero" class="en">Home</a><a href="#hero" class="ar">الرئيسية</a></li>
+                <li><a href="#about" class="en">About</a><a href="#about" class="ar">عني</a></li>
+                <li><a href="#skills" class="en">Skills</a><a href="#skills" class="ar">المهارات</a></li>
+                <li><a href="#journey" class="en">Certificates</a><a href="#journey" class="ar">الشهادات</a></li>
+                <li><a href="#projects" class="en">Projects</a><a href="#projects" class="ar">أعمالي</a></li>
+                <li><a href="#contact" class="en">Contact</a><a href="#contact" class="ar">تواصل معي</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="lang-switch" onclick="toggleLanguage()" aria-label="Switch language"><span id="langText">عربي</span></button>
+                <button class="icon-btn" onclick="toggleTheme()" id="themeBtn" aria-label="Enable dark mode" title="Theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="hero">
+        <div class="hero-emoji-cloud" aria-hidden="true"><span>🚀</span><span>✨</span><span>🧠</span><span>💻</span></div>
+        <div class="container hero-content">
+            <div class="hero-text">
+                <div class="hero-kicker"><span class="pulse-dot" aria-hidden="true"></span>✨ <span class="en">Open to meaningful tech opportunities</span><span class="ar">متاح للفرص التقنية المميزة</span></div>
+                <h1 class="en">Amr Emad <br><span class="highlight">Abdullah</span></h1>
+                <h1 class="ar">عمرو عماد <br><span class="highlight">عبدالله</span></h1>
+                
+                <h2 class="en">Web Developer · Cybersecurity · AI Explorer 🤖</h2>
+                <h2 class="ar">مطور واجهات ويب · مهتم بالأمن السيبراني · شغوف بالذكاء الاصطناعي 🤖</h2>
+                
+                <p class="en">Passionate about building secure, intelligent web solutions. I explore the intersection of hardware, software, and AI to create impactful digital experiences.</p>
+                <p class="ar">شغوف ببناء حلول ويب آمنة وذكية. أستكشف التقاطع بين العتاد والبرمجيات والذكاء الاصطناعي لإنشاء تجارب رقمية مؤثرة.</p>
+
+                <div class="quick-facts" aria-label="Highlights">
+                    <span class="fact">🚀 <strong>3</strong> <span class="en">live projects</span><span class="ar">مشاريع منشورة</span></span>
+                    <span class="fact">🏅 <strong>6</strong> <span class="en">certificates</span><span class="ar">شهادات</span></span>
+                    <span class="fact">💡 <span class="en">always learning</span><span class="ar">في تعلّم مستمر</span></span>
+                    <span class="fact">📚 <strong>1</strong> <span class="en">published book</span><span class="ar">كتاب منشور</span></span>
+                </div>
+                
+                <div class="hero-actions">
+                    <a href="#projects" class="btn btn-primary">
+                        <span class="en">Explore My Work 🚀</span>
+                        <span class="ar">استكشف أعمالي 🚀</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <a href="#contact" class="btn btn-outline">
+                        <span class="en">Contact Me 💬</span>
+                        <span class="ar">تواصل معي 💬</span>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="hero-image">
+                <img src="assets/profile.jpeg" alt="Amr Emad Abdullah in a library" fetchpriority="high">
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title"><span class="title-emoji" aria-hidden="true">👋</span><span class="en">About Me</span><span class="ar">من أنا</span></h2>
+            <p class="section-subtitle"><span class="en">Passionate about building thoughtful technical solutions where clear ideas meet human value.</span><span class="ar">شغوف ببناء حلول تقنية واعية تجمع بين الفكرة الواضحة والقيمة الإنسانية.</span></p>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p class="en">Engineer Amr Emad provides programming consultations in web development engineering and cyber attacks, with a special focus on the most complex, unstable, and ambiguous technical and programming problems.</p>
+                    <p class="ar">المهندس عمرو عماد يقدم استشارات برمجيه في هندسة تطوير الويب والهجمات السيبرانيه مع تركيز خاص على اعقد واكثر المشاكل التقنيه والبرمجيه اضطربا وغموضا</p>
+                    <p class="en">Beyond coding, I am an author. I wrote a social and psychological book titled <strong>"When Insult Becomes a Language"</strong>, which reflects my belief in the power of words and human respect.</p>
+                    <p class="ar">بعيداً عن البرمجة، أنا مؤلف. كتبت كتاباً اجتماعياً ونفسياً بعنوان <strong>"حين تصبح الإهانة لغة"</strong>، والذي يعكس إيماني بقوة الكلمات واحترام الإنسان.</p>
+                </div>
+                <div>
+                    <div class="skill-card mission-card" style="height: 100%; display: flex; flex-direction: column; justify-content: center;">
+                        <h3><i class="fa-solid fa-bullseye"></i> <span class="en">My Mission</span><span class="ar">رسالتي</span></h3>
+                        <p class="en" style="color: var(--text-muted);">To continuously innovate, learn, and build secure technological solutions that empower people and push the boundaries of what's possible.</p>
+                        <p class="ar" style="color: var(--text-muted);">الابتكار المستمر، والتعلم، وبناء حلول تكنولوجية آمنة تمكّن الناس وتدفع حدود الممكن.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills" style="background: var(--card-bg);">
+        <div class="container">
+            <h2 class="section-title"><span class="title-emoji" aria-hidden="true">🧩</span><span class="en">Skills & Expertise</span><span class="ar">المهارات والخبرات</span></h2>
+            <p class="section-subtitle"><span class="en">A focused toolkit for building useful, secure, and intelligent experiences.</span><span class="ar">مجموعة مهارات مركّزة لبناء تجارب مفيدة وآمنة وذكية.</span></p>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3 class="skill-heading"><span class="skill-emoji" aria-hidden="true">💻</span><i class="fa-solid fa-code"></i> <span class="en">Web Development</span><span class="ar">تطوير الويب</span></h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag">JavaScript</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h3 class="skill-heading"><span class="skill-emoji" aria-hidden="true">⌨️</span><i class="fa-solid fa-terminal"></i> <span class="en">Programming</span><span class="ar">البرمجة</span></h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Data Science (IBM)</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h3 class="skill-heading"><span class="skill-emoji" aria-hidden="true">🛡️</span><i class="fa-solid fa-shield-halved"></i> <span class="en">Cybersecurity</span><span class="ar">الأمن السيبراني</span></h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Network Security</span>
+                        <span class="skill-tag">Threat Analysis (Cisco)</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h3 class="skill-heading"><span class="skill-emoji" aria-hidden="true">🧠</span><i class="fa-solid fa-brain"></i> <span class="en">Artificial Intelligence</span><span class="ar">الذكاء الاصطناعي</span></h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Generative AI</span>
+                        <span class="skill-tag">LLMs (NVIDIA)</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h3 class="skill-heading"><span class="skill-emoji" aria-hidden="true">🔧</span><i class="fa-solid fa-microchip"></i> <span class="en">Hardware & Troubleshooting</span><span class="ar">العتاد وحل المشكلات</span></h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Computer Hardware</span>
+                        <span class="skill-tag">Technical Support</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CERTIFICATES SECTION -->
+    <section id="journey">
+        <div class="container">
+            <h2 class="section-title"><span class="title-emoji" aria-hidden="true">🏅</span><span class="en">Certifications</span><span class="ar">الشهادات</span></h2>
+            <p class="section-subtitle"><span class="en">A learning journey across cybersecurity, programming, data, and AI.</span><span class="ar">رحلة تعلم تشمل الأمن السيبراني والبرمجة والبيانات والذكاء الاصطناعي.</span></p>
+            <div class="cert-filter-bar" role="group" aria-label="Filter certificates">
+                <button class="cert-filter-btn" type="button" data-cert-filter="all" aria-pressed="true"><span class="en">All</span><span class="ar">الكل</span></button>
+                <button class="cert-filter-btn" type="button" data-cert-filter="programming" aria-pressed="false"><span class="en">Programming</span><span class="ar">البرمجة</span></button>
+                <button class="cert-filter-btn" type="button" data-cert-filter="ai" aria-pressed="false"><span class="en">AI</span><span class="ar">الذكاء الاصطناعي</span></button>
+                <button class="cert-filter-btn" type="button" data-cert-filter="data" aria-pressed="false"><span class="en">Data</span><span class="ar">البيانات</span></button>
+                <button class="cert-filter-btn" type="button" data-cert-filter="cybersecurity" aria-pressed="false"><span class="en">Cybersecurity</span><span class="ar">الأمن السيبراني</span></button>
+            </div>
+            <div class="certs-grid">
+                
+                <div class="cert-card" data-category="cybersecurity">
+                    <div class="cert-img-container">
+                        <a class="certificate-preview" href="assets/cisco-certificate.jpeg" target="_blank" rel="noopener noreferrer" aria-label="Preview Cisco certificate">
+                            <img src="assets/cisco-certificate.jpeg" alt="Cisco Networking Academy Introduction to Cybersecurity certificate" loading="lazy">
+                        </a>
+                    </div>
+                    <div class="cert-content">
+                        <span class="cert-badge">🎓 <span class="en">Course completed</span><span class="ar">إتمام دورة</span></span>
+                        <h4>Introduction to Cybersecurity</h4>
+                        <div class="issuer">Cisco Networking Academy</div>
+                        <div class="date">Sep 14, 2023</div>
+                        <a class="cert-link" href="assets/cisco-certificate.jpeg" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-image"></i><span class="en">View certificate</span><span class="ar">عرض الشهادة</span></a>
+                    </div>
+                </div>
+
+                <div class="cert-card" data-category="ai">
+                    <div class="cert-img-container">
+                        <a class="certificate-preview" href="assets/nvidia-certificate.jpeg" target="_blank" rel="noopener noreferrer" aria-label="Preview NVIDIA certificate">
+                            <img src="assets/nvidia-certificate.jpeg" alt="NVIDIA Certified Associate Generative AI and LLMs certificate" loading="lazy">
+                        </a>
+                    </div>
+                    <div class="cert-content">
+                        <span class="cert-badge">🤖 <span class="en">AI credential</span><span class="ar">اعتماد في الذكاء الاصطناعي</span></span>
+                        <h4>Generative AI and LLMs</h4>
+                        <div class="issuer">NVIDIA</div>
+                        <div class="date">Nov 03, 2025</div>
+                        <a class="cert-link" href="assets/nvidia-certificate.jpeg" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-image"></i><span class="en">View certificate</span><span class="ar">عرض الشهادة</span></a>
+                    </div>
+                </div>
+
+                <div class="cert-card" data-category="programming">
+                    <div class="cert-img-container">
+                        <a class="certificate-preview" href="assets/tofas-certificate.jpeg" target="_blank" rel="noopener noreferrer" aria-label="Preview TOFAS certificate">
+                            <img src="assets/tofas-certificate.jpeg" alt="TOFAS JavaScript Level 1 certificate" loading="lazy">
+                        </a>
+                    </div>
+                    <div class="cert-content">
+                        <span class="cert-badge">✅ <span class="en">Verification available</span><span class="ar">يتوفر رابط للتحقق</span></span>
+                        <h4>JavaScript Level 1</h4>
+                        <div class="issuer">TOFAS</div>
+                        <div class="date">Feb 20, 2026</div>
+                        <a class="cert-link" href="https://result.egy.programming-testing.com/certificate-check/0019c7b266db32abc0e907c8a8bae9f658" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i><span class="en">Verify certificate</span><span class="ar">التحقق من الشهادة</span></a>
+                    </div>
+                </div>
+
+                <div class="cert-card" data-category="programming">
+                    <div class="cert-img-container">
+                        <a class="certificate-preview" href="assets/tofas-javascript-level-3.pdf" target="_blank" rel="noopener noreferrer" aria-label="Preview TOFAS JavaScript Level 3 certificate">
+                            <img src="assets/tofas-javascript-level-3.png" alt="TOFAS JavaScript Level 3 certificate" loading="lazy">
+                        </a>
+                    </div>
+                    <div class="cert-content">
+                        <span class="cert-badge">🏆 <span class="en">Advanced level</span><span class="ar">مستوى متقدم</span></span>
+                        <h4>JavaScript Level 3</h4>
+                        <div class="issuer">TOFAS</div>
+                        <div class="date">Jul 30, 2026</div>
+                        <a class="cert-link" href="https://result.egy.programming-testing.com/certificate-check/0019fb2813af2a4ce002faaf120c1297f" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i><span class="en">Verify certificate</span><span class="ar">التحقق من الشهادة</span></a>
+                    </div>
+                </div>
+
+                <div class="cert-card" data-category="data">
+                    <div class="cert-img-container">
+                        <a class="certificate-preview" href="assets/ibm-certificate.jpeg" target="_blank" rel="noopener noreferrer" aria-label="Preview IBM certificate">
+                            <img src="assets/ibm-certificate.jpeg" alt="IBM Data Science professional certificate" loading="lazy">
+                        </a>
+                    </div>
+                    <div class="cert-content">
+                        <span class="cert-badge">📊 <span class="en">Professional certificate</span><span class="ar">شهادة احترافية</span></span>
+                        <h4>IBM Data Science</h4>
+                        <div class="issuer">IBM SkillsBuild</div>
+                        <div class="date">Apr 22, 2024</div>
+                        <a class="cert-link" href="assets/ibm-certificate.jpeg" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-image"></i><span class="en">View certificate</span><span class="ar">عرض الشهادة</span></a>
+                    </div>
+                </div>
+
+                <div class="cert-card" data-category="programming">
+                    <div class="cert-img-container">
+                        <a class="certificate-preview" href="assets/google-certificate.jpeg" target="_blank" rel="noopener noreferrer" aria-label="Preview Google certificate">
+                            <img src="assets/google-certificate.jpeg" alt="Google Crash Course on Python certificate" loading="lazy">
+                        </a>
+                    </div>
+                    <div class="cert-content">
+                        <span class="cert-badge">🐍 <span class="en">Python course</span><span class="ar">دورة بايثون</span></span>
+                        <h4>Crash Course on Python</h4>
+                        <div class="issuer">Google Career Certificates</div>
+                        <div class="date">Certificate of Completion</div>
+                        <a class="cert-link" href="assets/google-certificate.jpeg" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-image"></i><span class="en">View certificate</span><span class="ar">عرض الشهادة</span></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <dialog class="certificate-modal" id="certificateModal" aria-labelledby="certificateModalTitle">
+        <div class="modal-header">
+            <p id="certificateModalTitle">Certificate preview</p>
+            <button class="icon-btn" id="closeCertificateModal" type="button" aria-label="Close certificate preview" title="Close"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="modal-preview">
+            <img id="certificateModalImage" src="" alt="">
+        </div>
+        <div class="modal-actions">
+            <a class="modal-open-link" id="certificateModalSource" href="#" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i> <span class="en">Open original</span><span class="ar">فتح الملف الأصلي</span></a>
+        </div>
+    </dialog>
+
+    <!-- PORTFOLIO SECTION -->
+    <section id="projects" style="background: var(--card-bg);">
+        <div class="container">
+            <h2 class="section-title"><span class="title-emoji" aria-hidden="true">🚀</span><span class="en">My Projects</span><span class="ar">أعمالي</span></h2>
+            <p class="section-subtitle"><span class="en">Selected work that turns curiosity into useful digital products.</span><span class="ar">نماذج من أعمال تحوّل الفضول التقني إلى منتجات رقمية مفيدة.</span></p>
+            
+            <div class="projects-grid">
+                <div class="book-card">
+                    <div class="book-cover-container">
+                        <a href="assets/when-insult-becomes-a-language.pdf" target="_blank" rel="noopener noreferrer" aria-label="Read When Insult Becomes a Language">
+                            <img class="book-cover-image" src="assets/when-insult-becomes-a-language-cover.png" alt="Cover of the book حين تصبح الإهانة لغة" loading="lazy">
+                        </a>
+                    </div>
+                    <div class="book-info">
+                        <h3><i class="fa-solid fa-book-open highlight"></i> <span class="en">Author</span><span class="ar">مؤلف</span></h3>
+                        <p class="en" style="margin-top: 1rem; color: var(--text-muted);">A social and psychological book exploring the contagion of words, the normalization of cruelty, and the loss of respect in modern communication.</p>
+                        <p class="ar" style="margin-top: 1rem; color: var(--text-muted);">كتاب اجتماعي ونفسي يستكشف عدوى الكلمات، واعتياد القسوة، وضياع الاحترام في التواصل الحديث.</p>
+                        <div class="book-actions">
+                            <a href="assets/when-insult-becomes-a-language.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-primary"><i class="fa-solid fa-book-open"></i><span class="en">Read the book</span><span class="ar">قراءة الكتاب</span></a>
+                            <a href="assets/when-insult-becomes-a-language.pdf" download class="btn btn-outline"><i class="fa-solid fa-download"></i><span class="en">Download PDF</span><span class="ar">تحميل PDF</span></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-img"><i class="fa-solid fa-microchip"></i></div>
+                    <div class="project-info">
+                        <h3 class="en">GPU Intelligence</h3>
+                        <h3 class="ar">ذكاء كروت الشاشة</h3>
+                        <p class="en">A web platform exploring GPU capabilities, architecture, and intelligence.</p>
+                        <p class="ar">منصة ويب تستكشف قدرات ومعمارية وذكاء كروت الشاشة.</p>
+                        <div class="project-links">
+                            <a href="https://gpu-intelligence-by-amr-emad.vercel.app/" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i> <span class="en">Visit website</span><span class="ar">زيارة الموقع</span></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-img" style="background: linear-gradient(135deg, #a8e6cf, #1eb980);"><i class="fa-solid fa-briefcase"></i></div>
+                    <div class="project-info">
+                        <h3 class="en">Personal Portfolio V1</h3>
+                        <h3 class="ar">الموقع الشخصي الإصدار الأول</h3>
+                        <p class="en">The first iteration of my personal portfolio showcasing projects and skills.</p>
+                        <p class="ar">الإصدار الأول من موقعي الشخصي لعرض المشاريع والمهارات.</p>
+                        <div class="project-links">
+                            <a href="https://amr-emad-project-and-protfilio.vercel.app/" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i> <span class="en">Visit website</span><span class="ar">زيارة الموقع</span></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-img" style="background: linear-gradient(135deg, #d4f0df, #2ecc71);"><i class="fa-solid fa-laptop-code"></i></div>
+                    <div class="project-info">
+                        <h3 class="en">Tech Project Showcase</h3>
+                        <h3 class="ar">معرض المشاريع التقنية</h3>
+                        <p class="en">A specialized web project demonstrating advanced frontend techniques.</p>
+                        <p class="ar">مشروع ويب متخصص يوضح تقنيات الواجهة الأمامية المتقدمة.</p>
+                        <div class="project-links">
+                            <a href="https://amr-emad-abdullah-project.vercel.app/" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i> <span class="en">Visit website</span><span class="ar">زيارة الموقع</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title"><span class="title-emoji" aria-hidden="true">💬</span><span class="en">Get In Touch</span><span class="ar">تواصل معي</span></h2>
+            <p class="section-subtitle"><span class="en">Have an idea, opportunity, or question? Let’s start a conversation.</span><span class="ar">لديك فكرة أو فرصة أو سؤال؟ لنبدأ الحديث.</span></p>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3 class="en">Let’s build something meaningful together ✨</h3>
+                    <h3 class="ar">لنصنع شيئاً ذا قيمة معاً ✨</h3>
+                    <p class="en">Feel free to reach out for collaborations, opportunities, or just a tech chat.</p>
+                    <p class="ar">لا تتردد في التواصل للتعاون، أو الفرص، أو مجرد محادثة تقنية.</p>
+                    
+                    <div class="contact-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <a href="mailto:amremadmady@gmail.com">amremadmady@gmail.com</a>
+                        <button class="copy-email-btn" type="button" onclick="copyEmail()" aria-label="Copy email address" title="Copy email"><i class="fa-regular fa-copy"></i></button>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <a href="tel:01010577202" dir="ltr">01010577202</a>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="#" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                        <a href="#" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <input type="text" name="name" placeholder="Name / الاسم" aria-label="Name" required>
+                        <input type="email" name="email" placeholder="Email / البريد الإلكتروني" aria-label="Email" required>
+                        <textarea rows="5" name="message" placeholder="Message / الرسالة" aria-label="Message" required></textarea>
+                        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span class="en">Send Message</span>
+                            <span class="ar">إرسال الرسالة</span>
+                        </button>
+                    </form>
+                    <div id="formStatus" class="form-status" role="status" aria-live="polite"><span class="en">✨ Thanks! This demo form is ready to connect to your email service.</span><span class="ar">✨ شكرًا لك! نموذج العرض جاهز للربط بخدمة البريد الإلكتروني.</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; <span id="currentYear"></span> Amr Emad Abdullah. <span class="en">Built with curiosity and care ✨</span><span class="ar">صُنع بشغف واهتمام ✨</span></p>
+    </footer>
+    <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top" title="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        const body = document.body;
+        const navLinks = document.getElementById('navLinks');
+        const langText = document.getElementById('langText');
+        const themeBtn = document.getElementById('themeBtn');
+        const themeBtnIcon = themeBtn.querySelector('i');
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const backToTop = document.getElementById('backToTop');
+        const scrollProgress = document.getElementById('scrollProgress');
+        const toast = document.getElementById('toast');
+        let toastTimer;
+
+        function isArabic() {
+            return body.classList.contains('lang-ar');
+        }
+
+        function updateControls() {
+            const darkMode = body.classList.contains('dark-mode');
+            themeBtnIcon.className = darkMode ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+            themeBtn.setAttribute('aria-label', darkMode
+                ? (isArabic() ? 'تفعيل الوضع الفاتح' : 'Enable light mode')
+                : (isArabic() ? 'تفعيل الوضع الداكن' : 'Enable dark mode'));
+            langText.textContent = isArabic() ? 'EN' : 'عربي';
+            mobileMenuBtn.setAttribute('aria-label', isArabic() ? 'فتح القائمة' : 'Open menu');
+        }
+
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme === 'dark') body.classList.add('dark-mode');
+        updateControls();
+
+        function toggleTheme() {
+            body.classList.toggle('dark-mode');
+            localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
+            updateControls();
+        }
+
+        function toggleLanguage() {
+            const switchedToArabic = body.classList.contains('lang-en');
+            body.classList.toggle('lang-en', !switchedToArabic);
+            body.classList.toggle('lang-ar', switchedToArabic);
+            body.setAttribute('dir', switchedToArabic ? 'rtl' : 'ltr');
+            body.setAttribute('lang', switchedToArabic ? 'ar' : 'en');
+            updateControls();
+        }
+
+        function toggleMenu() {
+            const menuIsOpen = navLinks.classList.toggle('active');
+            mobileMenuBtn.setAttribute('aria-expanded', String(menuIsOpen));
+            mobileMenuBtn.querySelector('i').className = menuIsOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+        }
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                mobileMenuBtn.querySelector('i').className = 'fa-solid fa-bars';
+            });
+        });
+
+        function updateScrollExperience() {
+            const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = scrollableHeight > 0 ? (window.scrollY / scrollableHeight) * 100 : 0;
+            scrollProgress.style.width = `${progress}%`;
+            backToTop.classList.toggle('visible', window.scrollY > 520);
+        }
+        window.addEventListener('scroll', updateScrollExperience, { passive: true });
+        updateScrollExperience();
+
+        backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        const sections = document.querySelectorAll('main section, body > section');
+        const navItems = document.querySelectorAll('.nav-links a');
+        const setActiveNavItem = (id) => {
+            navItems.forEach(link => link.classList.toggle('active', link.getAttribute('href') === `#${id}`));
+        };
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) setActiveNavItem(entry.target.id);
+            });
+        }, { rootMargin: '-35% 0px -55% 0px', threshold: 0.01 });
+        sections.forEach(section => sectionObserver.observe(section));
+
+        const revealTargets = document.querySelectorAll('.about-grid, .skill-card, .cert-card, .book-card, .project-card, .contact-container, .section-subtitle');
+        revealTargets.forEach(target => target.classList.add('reveal'));
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            });
+        }, { threshold: 0.12 });
+        revealTargets.forEach(target => revealObserver.observe(target));
+
+        const certificateCards = document.querySelectorAll('.cert-card');
+        const certificateFilterButtons = document.querySelectorAll('[data-cert-filter]');
+        certificateFilterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const filter = button.dataset.certFilter;
+                certificateCards.forEach(card => {
+                    card.hidden = filter !== 'all' && card.dataset.category !== filter;
+                });
+                certificateFilterButtons.forEach(filterButton => {
+                    filterButton.setAttribute('aria-pressed', String(filterButton === button));
+                });
+            });
+        });
+
+        const certificateModal = document.getElementById('certificateModal');
+        const certificateModalImage = document.getElementById('certificateModalImage');
+        const certificateModalTitle = document.getElementById('certificateModalTitle');
+        const certificateModalSource = document.getElementById('certificateModalSource');
+        const closeCertificateModal = document.getElementById('closeCertificateModal');
+
+        document.querySelectorAll('.certificate-preview').forEach(preview => {
+            preview.addEventListener('click', event => {
+                event.preventDefault();
+                const image = preview.querySelector('img');
+                if (!image) return;
+                certificateModalImage.src = image.currentSrc || image.src;
+                certificateModalImage.alt = image.alt;
+                certificateModalTitle.textContent = image.alt;
+                certificateModalSource.href = preview.href;
+                certificateModal.showModal();
+            });
+        });
+
+        closeCertificateModal.addEventListener('click', () => certificateModal.close());
+        certificateModal.addEventListener('click', event => {
+            const bounds = certificateModal.getBoundingClientRect();
+            const clickedBackdrop = event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom;
+            if (clickedBackdrop) certificateModal.close();
+        });
+
+        const burstEmojis = ['✨', '🚀', '💻', '🎉', '⚡', '🧠', '🔥', '🌟', '🎯', '💚'];
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        function createEmojiBurst(event) {
+            if (prefersReducedMotion.matches) return;
+            const bounds = event.currentTarget.getBoundingClientRect();
+            const total = event.currentTarget.matches('.cert-card, .project-card') ? 5 : 3;
+            for (let index = 0; index < total; index += 1) {
+                const emoji = document.createElement('span');
+                const angle = (Math.PI * 2 * index) / total + (Math.random() * 0.55 - 0.275);
+                const distance = 42 + Math.random() * 44;
+                emoji.className = 'emoji-burst';
+                emoji.textContent = burstEmojis[Math.floor(Math.random() * burstEmojis.length)];
+                emoji.style.left = `${bounds.left + bounds.width / 2}px`;
+                emoji.style.top = `${bounds.top + bounds.height / 2}px`;
+                emoji.style.setProperty('--burst-x', `${Math.cos(angle) * distance}px`);
+                emoji.style.setProperty('--burst-y', `${Math.sin(angle) * distance}px`);
+                emoji.addEventListener('animationend', () => emoji.remove(), { once: true });
+                document.body.appendChild(emoji);
+            }
+        }
+        document.querySelectorAll('.btn, .fact, .skill-card, .cert-card, .project-card, .cert-filter-btn, .icon-btn, .lang-switch').forEach(target => {
+            target.addEventListener('click', createEmojiBurst);
+        });
+
+        function showToast(message) {
+            toast.textContent = message;
+            toast.classList.add('show');
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => toast.classList.remove('show'), 2500);
+        }
+
+        async function copyEmail() {
+            const email = 'amremadmady@gmail.com';
+            try {
+                if (navigator.clipboard?.writeText) {
+                    await navigator.clipboard.writeText(email);
+                } else {
+                    const temporaryInput = document.createElement('input');
+                    temporaryInput.value = email;
+                    document.body.appendChild(temporaryInput);
+                    temporaryInput.select();
+                    document.execCommand('copy');
+                    temporaryInput.remove();
+                }
+                showToast(isArabic() ? '📋 تم نسخ البريد الإلكتروني' : '📋 Email copied to clipboard');
+            } catch {
+                showToast(isArabic() ? 'انسخ البريد: amremadmady@gmail.com' : 'Copy this email: amremadmady@gmail.com');
+            }
+        }
+
+        const contactForm = document.getElementById('contactForm');
+        const formStatus = document.getElementById('formStatus');
+        contactForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            formStatus.classList.add('is-visible');
+            contactForm.reset();
+        });
+
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
